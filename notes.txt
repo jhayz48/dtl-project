@@ -1,22 +1,16 @@
-https://links.sgx.com/1.0.0/derivatives-historical/4377/WEBPXTICK_DT.zip
-https://links.sgx.com/1.0.0/derivatives-historical/4377/TickData_structure.dat
-https://links.sgx.com/1.0.0/derivatives-historical/4377/TC_structure.dat
-https://links.sgx.com/1.0.0/derivatives-historical/4377/TC.txt
-
-ConfigParser:
-https://docs.python.org/2/library/configparser.html#ConfigParser.ConfigParser
-
-Logging:
-http://ftp.dyu.edu.tw/doc/python2.7.9/howto/logging.html#
-
-ArgeParse:
-https://docs.python.org/dev/library/argparse.html#adding-arguments
+[20190523]
+https://links.sgx.com/1.0.0/derivatives-historical/4379/WEBPXTICK_DT.zip
+https://links.sgx.com/1.0.0/derivatives-historical/4379/TickData_structure.dat
+https://links.sgx.com/1.0.0/derivatives-historical/4379/TC_structure.dat
+https://links.sgx.com/1.0.0/derivatives-historical/4379/TC.txt
 
 # oldest data available
 2755 = 20130405
 
+# python version
 Python 2.7.9 (default, Dec 10 2014, 12:28:03) [MSC v.1500 64 bit (AMD64)] on win32
 
+# usage
 python.exe dtl_downloader.py -h
 usage: dtl_downloader.py [-h] [--setStartSeq SETSTARTSEQ]
                          [--setEndSeq SETENDSEQ] [--setStartDate SETSTARTDATE]
@@ -40,6 +34,8 @@ optional arguments:
                         set ending date [yyyymmdd]
   --setAll SETALL       set to download all available files [yes|no]
 
+
+
 # Normal Run
 python.exe dtl_downloader.py dtl_downloader.cfg
 loading config file [dtl_downloader.cfg]
@@ -55,3 +51,4 @@ file downloaded [TD_20190523.zip]
 file downloaded [TD_structure_20190523.dat]
 file downloaded [TC_20190523.txt]
 file downloaded [TC_structure_20190523.dat]
+

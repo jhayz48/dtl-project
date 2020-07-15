@@ -1,3 +1,9 @@
+############################
+# SGX Auto downloader v1.0 #
+# 2019-05-27               #
+# John Christopher Dizon   #
+############################
+
 import os
 import sys
 import ConfigParser
@@ -318,6 +324,14 @@ def list_dates():
 	# check if end date is specified
 	if(cache.has_option('DEFAULT',_end_date)):
 		_end_seq = cache.get('DEFAULT',_end_date)
+
+	# check if start seq is specified
+	if(cache.has_option('DEFAULT',_start_seq)):
+		_start_date = cache.get('DEFAULT',_start_seq)	
+
+	# check if end seq is specified
+	if(cache.has_option('DEFAULT',_end_seq)):
+		_end_date = cache.get('DEFAULT',_end_seq)
 		
 	if(len(_start_seq) == 0 or len(_end_seq) == 0 ):
 		find_date()
@@ -433,13 +447,17 @@ def init_logger(date_fmt, log_level, log_dir, name):
 	if not isinstance(numeric_level, int):
 		raise ValueError('Invalid log level: %s' % log_level)
 
-	now = datetime.datetime.now()	
-	logger.setLevel(numeric_level)
-	rfh = logging.handlers.TimedRotatingFileHandler(filename=log_dir + '/' + name + '_'+ now.strftime('%Y%m%d')+ '.log', when='midnight')
-	fmtr = logging.Formatter('%(asctime)s [%(levelname)s] %(message)s', datefmt=date_fmt)
-	rfh.setFormatter(fmtr)
-	logger.addHandler(rfh)
-
+	try:
+		now = datetime.datetime.now()	
+		logger.setLevel(numeric_level)
+		rfh = logging.handlers.TimedRotatingFileHandler(filename=log_dir + '/' + name + '_'+ now.strftime('%Y%m%d')+ '.log', when='midnight')
+		fmtr = logging.Formatter('%(asctime)s [%(levelname)s] %(message)s', datefmt=date_fmt)
+		rfh.setFormatter(fmtr)
+		logger.addHandler(rfh)
+	except Exception, e:
+		print "failed to initialize logger (" +str(e)+ ")"
+		sys.exit(1)
+		
 	logger.debug("logger has been initialized!")
 
 def update_config(file):
