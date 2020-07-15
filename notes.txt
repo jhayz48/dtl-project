@@ -1,0 +1,57 @@
+https://links.sgx.com/1.0.0/derivatives-historical/4377/WEBPXTICK_DT.zip
+https://links.sgx.com/1.0.0/derivatives-historical/4377/TickData_structure.dat
+https://links.sgx.com/1.0.0/derivatives-historical/4377/TC_structure.dat
+https://links.sgx.com/1.0.0/derivatives-historical/4377/TC.txt
+
+ConfigParser:
+https://docs.python.org/2/library/configparser.html#ConfigParser.ConfigParser
+
+Logging:
+http://ftp.dyu.edu.tw/doc/python2.7.9/howto/logging.html#
+
+ArgeParse:
+https://docs.python.org/dev/library/argparse.html#adding-arguments
+
+# oldest data available
+2755 = 20130405
+
+Python 2.7.9 (default, Dec 10 2014, 12:28:03) [MSC v.1500 64 bit (AMD64)] on win32
+
+python.exe dtl_downloader.py -h
+usage: dtl_downloader.py [-h] [--setStartSeq SETSTARTSEQ]
+                         [--setEndSeq SETENDSEQ] [--setStartDate SETSTARTDATE]
+                         [--setEndDate SETENDDATE] [--setAll SETALL]
+                         config_file
+
+SGX Auto Downloader
+
+positional arguments:
+  config_file           configuration file
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --setStartSeq SETSTARTSEQ
+                        set starting sequence [int]
+  --setEndSeq SETENDSEQ
+                        set ending sequence [int]
+  --setStartDate SETSTARTDATE
+                        set starting date [yyyymmdd]
+  --setEndDate SETENDDATE
+                        set ending date [yyyymmdd]
+  --setAll SETALL       set to download all available files [yes|no]
+
+# Normal Run
+python.exe dtl_downloader.py dtl_downloader.cfg
+loading config file [dtl_downloader.cfg]
+checking last downloaded date in cache
+start date is empty!
+using date 20190523 (4379)
+checking latest available download date
+found latest is: 20190523 = 4379
+START: 20190523 (4379)
+END: 20190523 (4379)
+downloading data : 20190523 (4379)
+file downloaded [TD_20190523.zip]
+file downloaded [TD_structure_20190523.dat]
+file downloaded [TC_20190523.txt]
+file downloaded [TC_structure_20190523.dat]
